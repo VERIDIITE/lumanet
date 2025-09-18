@@ -235,21 +235,23 @@ export function CollaborationRequests({
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-4">
                       <Avatar className="w-12 h-12 border border-white/20">
-                        <AvatarImage src={request.collaborator.avatar || "/placeholder.svg"} />
+                        <AvatarImage src={request.collaborator?.avatar || "/placeholder.svg"} />
                         <AvatarFallback className="bg-white/10 text-white">
-                          {request.collaborator.name
-                            .split(" ")
+                          {request.collaborator?.name
+                            ?.split(" ")
                             .map((n) => n[0])
-                            .join("")}
+                            .join("") || "??"}
                         </AvatarFallback>
                       </Avatar>
                       <div>
-                        <CardTitle className="text-lg text-white">{request.collaborator.name}</CardTitle>
-                        <CardDescription className="text-white/60">{request.collaborator.role}</CardDescription>
+                        <CardTitle className="text-lg text-white">{request.collaborator?.name || "Unknown"}</CardTitle>
+                        <CardDescription className="text-white/60">
+                          {request.collaborator?.role || "Unknown Role"}
+                        </CardDescription>
                         <div className="flex items-center gap-2 mt-1">
                           <span className="text-sm text-white/60">for</span>
                           <Badge variant="outline" className="text-white border-white/40 bg-black/60">
-                            {request.project.title}
+                            {request.project?.title || "Unknown Project"}
                           </Badge>
                         </div>
                       </div>
@@ -333,20 +335,20 @@ export function CollaborationRequests({
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-4">
                       <Avatar className="w-12 h-12">
-                        <AvatarImage src={request.collaborator.avatar || "/placeholder.svg"} />
+                        <AvatarImage src={request.collaborator?.avatar || "/placeholder.svg"} />
                         <AvatarFallback>
-                          {request.collaborator.name
-                            .split(" ")
+                          {request.collaborator?.name
+                            ?.split(" ")
                             .map((n) => n[0])
-                            .join("")}
+                            .join("") || "??"}
                         </AvatarFallback>
                       </Avatar>
                       <div>
-                        <CardTitle className="text-lg">{request.collaborator.name}</CardTitle>
-                        <CardDescription>{request.collaborator.role}</CardDescription>
+                        <CardTitle className="text-lg">{request.collaborator?.name || "Unknown"}</CardTitle>
+                        <CardDescription>{request.collaborator?.role || "Unknown Role"}</CardDescription>
                         <div className="flex items-center gap-2 mt-1">
                           <span className="text-sm text-muted-foreground">for</span>
-                          <Badge variant="outline">{request.project.title}</Badge>
+                          <Badge variant="outline">{request.project?.title || "Unknown Project"}</Badge>
                         </div>
                       </div>
                     </div>

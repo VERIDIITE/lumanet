@@ -376,7 +376,26 @@ export function LumaNetDashboard() {
         }
       `}</style>
 
-      <div className="min-h-screen bg-background">
+      {/* 3D Spline Background */}
+      <div className="fixed top-0 w-full h-screen z-0 opacity-80">
+        <iframe
+          src="https://my.spline.design/3dgradient-AcpgG6LxFkpnJSoowRHPfcbO/?autoplay=1&loop=1"
+          frameBorder="0"
+          width="100%"
+          height="100%"
+          id="aura-spline"
+          allow="autoplay"
+        />
+      </div>
+
+      {/* Background layers */}
+      <div className="fixed inset-0 z-0">
+        <div className="absolute inset-0 opacity-[0.15] bg-[radial-gradient(#101010_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div className="absolute inset-0 opacity-[0.10] bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:120px_1px,1px_120px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/30"></div>
+      </div>
+
+      <div className="min-h-screen bg-background/40 backdrop-blur-[1px] relative z-10">
         <header className="border-b border-border/20 bg-background/95 backdrop-blur-sm sticky top-0 z-50">
           <div className="container mx-auto px-8 py-6">
             <div className="flex items-center justify-between">
@@ -930,9 +949,9 @@ export function LumaNetDashboard() {
                                   variant="outline"
                                   size="sm"
                                   onClick={() => handleRemoveCollaborator(project.id, collaborator.id)}
-                                  className="bg-transparent border-red-500/50 text-red-400 hover:bg-red-500/10 hover:border-red-500 font-medium tracking-wide"
+                                  className="w-8 h-8 p-0 bg-black/80 border-red-400/30 text-red-300 hover:bg-red-500/20 hover:border-red-400/60 hover:text-red-200 transition-all duration-200 font-bold text-lg backdrop-blur-sm"
                                 >
-                                  REMOVE
+                                  ×
                                 </Button>
                               </div>
                             ))}
